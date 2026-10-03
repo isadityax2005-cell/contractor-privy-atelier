@@ -78,7 +78,7 @@ export const tenets = {
       accent: "Total",
       word: "Sanctuary",
       body: "An enclave insulated from everything beyond its walls. Autonomous energy, subterranean galleries, thermal reflection basins and a perimeter of mature forest that turns the outside world to silence.",
-      imgs: ["project-alps", "project-antibes"],
+      imgs: ["hillside-sanctuary", "project-alps"],
       list: [
         ["Energy", "Solar + geothermal"],
         ["Access", "Separate, private"],

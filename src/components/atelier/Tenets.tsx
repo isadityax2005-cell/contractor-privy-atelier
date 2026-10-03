@@ -123,9 +123,21 @@ export default function Tenets() {
                   ))}
                 </ul>
               </div>
-              <div style={{ gridColumn: "7 / span 6", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.2rem" }}>
-                <Frame name={p2.imgs![0]} alt="TIG welding precision craftsmanship" parallax={false} reveal={false} />
-                <Frame name={p2.imgs![1]} alt="Board-formed concrete gallery architecture" parallax={false} reveal={false} />
+              <div className="panel__gallery">
+                <div className="panel__item panel__item--lead">
+                  <Frame name={p2.imgs![0]} alt="TIG welding precision craftsmanship" parallax={false} reveal={false} />
+                  <div className="panel__item-meta">
+                    <span className="small muted">01 / TIG WELDING</span>
+                    <span className="small muted">0.5MM TOLERANCE</span>
+                  </div>
+                </div>
+                <div className="panel__item panel__item--trail">
+                  <Frame name={p2.imgs![1]} alt="Board-formed concrete gallery architecture" parallax={false} reveal={false} />
+                  <div className="panel__item-meta">
+                    <span className="small muted">02 / GALLERY</span>
+                    <span className="small muted">POST-TENSIONED</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -155,9 +167,21 @@ export default function Tenets() {
                   ))}
                 </ul>
               </div>
-              <div style={{ gridColumn: "7 / span 6", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.2rem" }}>
-                <Frame name={p3.imgs![0]} alt="Alpine sanctuary mountain modernism" parallax={false} reveal={false} />
-                <Frame name={p3.imgs![1]} alt="Villa Solstice coastal architecture" parallax={false} reveal={false} />
+              <div className="panel__gallery">
+                <div className="panel__item panel__item--lead">
+                  <Frame name={p3.imgs![0]} alt="Hillside sanctuary architectural perimeter" parallax={false} reveal={false} />
+                  <div className="panel__item-meta">
+                    <span className="small muted">01 / ENCLAVE</span>
+                    <span className="small muted">MATURE PERIMETER</span>
+                  </div>
+                </div>
+                <div className="panel__item panel__item--trail">
+                  <Frame name={p3.imgs![1]} alt="High-alpine geothermal compound" parallax={false} reveal={false} />
+                  <div className="panel__item-meta">
+                    <span className="small muted">02 / SANCTUARY</span>
+                    <span className="small muted">GEOTHERMAL / 52DB</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
