@@ -113,7 +113,7 @@ export default function Luxury() {
           <div style={{ maxWidth: "min(72rem, 90vw)", margin: "0 auto", textAlign: "center" }}>
             <Lines
               as="h2"
-              className="h1"
+              className="luxury__editorial"
               lines={[
                 "EXCLUSIVE ESTATES",
                 "IN THE WORLD'S MOST",
@@ -123,8 +123,8 @@ export default function Luxury() {
               ]}
               trigger={false}
             />
-            <span className="line" style={{ marginTop: "1rem" }}>
-              <span className="accent t-sub-s muted" style={{ display: "block" }}>
+            <span className="line">
+              <span className="luxury__editorial-accent">
                 of fine living
               </span>
             </span>

@@ -26,7 +26,7 @@ export default function Sensation() {
       <div className="sensation__title">
         <Lines
           as="h2"
-          className="h0"
+          className="h1"
           lines={[
             "EVOKING",
             "A PERMANENCE",

@@ -23,31 +23,23 @@ export default function Hero({
       const titleSpans = el.querySelectorAll(".h0 .line > span");
       const arrow = el.querySelector(".hero__arrow");
       const card = el.querySelector(".card3d");
-      const dim = el.querySelector(".hero__dim");
+      const content = el.querySelector(".hero__content");
 
       gsap.set(media, { scale: 1.18 });
       gsap.set(sub, { opacity: 0, y: 36 });
       gsap.set(titleSpans, { yPercent: 112 });
       gsap.set([arrow, card], { opacity: 0, y: 24 });
 
-      // Scroll choreography when #about enters
+      // Smooth subtle parallax on scroll without any blanking or rough jumps
       ScrollTrigger.create({
-        trigger: "#about",
-        start: "top bottom",
-        end: "top top",
-        scrub: true,
-        onUpdate: (self) => {
-          if (media) gsap.set(media, { yPercent: self.progress * 14 });
-          if (dim) gsap.set(dim, { opacity: self.progress * 0.75 });
-        },
-      });
-
-      // Visibility toggle at top top to preserve GPU
-      ScrollTrigger.create({
-        trigger: "#about",
+        trigger: el,
         start: "top top",
-        onEnter: () => gsap.set(el, { visibility: "hidden" }),
-        onLeaveBack: () => gsap.set(el, { visibility: "visible" }),
+        end: "bottom top",
+        scrub: 0.5,
+        onUpdate: (self) => {
+          if (media) gsap.set(media, { yPercent: self.progress * 12 });
+          if (content) gsap.set(content, { yPercent: -self.progress * 16, opacity: 1 - self.progress * 0.45 });
+        },
       });
     },
     { scope: root },
@@ -76,7 +68,6 @@ export default function Hero({
 
   return (
     <section id="top" ref={root} className="hero ui-dark" data-theme="dark">
-      <div className="hero__dim" />
       <div className="hero__inner">
         <div className="hero__media">
           <AutoVideo name="hero-loop" poster="hero-poster" hero eager />
