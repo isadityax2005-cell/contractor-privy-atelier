@@ -9,10 +9,10 @@ import { brand } from "@/data/atelier";
 const links = [
   { label: "The Collection", href: "#about" },
   { label: "Three Disciplines", href: "#disciplines" },
-  { label: "Tenets", href: "#tenets" },
+  { label: "The Tenets", href: "#tenets" },
   { label: "Commissions", href: "#selection" },
-  { label: "Ateliers", href: "#locations" },
-  { label: "The Idea", href: "#idea" },
+  { label: "Global Ateliers", href: "#locations" },
+  { label: "The Philosophy", href: "#idea" },
 ];
 
 export default function Menu({
@@ -42,9 +42,9 @@ export default function Menu({
         gsap.set(el, { visibility: "visible" });
         gsap
           .timeline()
-          .to(el, { clipPath: "circle(150% at 3% 4%)", duration: 1.3, ease: "sobha" })
-          .fromTo(items, { yPercent: 110 }, { yPercent: 0, duration: 1.1, ease: "sobha", stagger: 0.06 }, "-=0.8")
-          .fromTo(el.querySelectorAll(".menu__aside > *"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: "sobha", stagger: 0.08 }, "-=0.9");
+          .to(el, { clipPath: "circle(150% at 3% 4%)", duration: 0.8, ease: "power3.inOut" })
+          .fromTo(items, { yPercent: 110 }, { yPercent: 0, duration: 0.65, ease: "power3.out", stagger: 0.035 }, "-=0.55")
+          .fromTo(el.querySelectorAll(".menu__aside > *"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", stagger: 0.04 }, "-=0.5");
       } else {
         gsap
           .timeline({
@@ -53,8 +53,8 @@ export default function Menu({
               getLenis()?.start();
             },
           })
-          .to(items, { yPercent: -110, duration: 0.7, ease: "sobha", stagger: 0.03 })
-          .to(el, { clipPath: "circle(0% at 3% 4%)", duration: 1, ease: "sobha" }, "-=0.45");
+          .to(items, { yPercent: -110, duration: 0.4, ease: "power3.in", stagger: 0.02 })
+          .to(el, { clipPath: "circle(0% at 3% 4%)", duration: 0.6, ease: "power3.inOut" }, "-=0.25");
       }
     },
     { scope: root, dependencies: [open] },
@@ -68,7 +68,7 @@ export default function Menu({
 
   const go = (href: string) => {
     onClose();
-    setTimeout(() => scrollToTarget(href, 2), 900);
+    setTimeout(() => scrollToTarget(href, 2), 800);
   };
 
   return (
@@ -88,41 +88,60 @@ export default function Menu({
                 go(l.href);
               }}
             >
-              <span className="num">0{i + 1}</span>
-              <span className="line" style={{ marginBottom: 0 }}>
-                <span className="menu__item h1" style={{ fontSize: "clamp(2.4rem, 6.4vw, 7.6rem)" }}>
+              <span className="menu__num">0{i + 1}</span>
+              <span className="menu__mask">
+                <span className="menu__item">
                   {l.label}
                 </span>
               </span>
+              <span className="menu__arrow" aria-hidden="true">→</span>
             </a>
           ))}
         </nav>
         <aside className="menu__aside">
+          <div className="menu__brand-note">
+            <span className="small muted" style={{ letterSpacing: "0.2em", display: "block", marginBottom: "0.5rem" }}>
+              ARCHITECTURAL ATELIER
+            </span>
+            <p className="lead" style={{ fontSize: "0.95rem", lineHeight: 1.5, color: "rgba(255,255,255,0.7)", maxWidth: "25rem", margin: 0 }}>
+              Master-crafted private estates and bespoke residential architecture engineered for multi-generational permanence.
+            </p>
+          </div>
           <div>
-            <p className="small muted" style={{ marginBottom: ".8rem" }}>Private line</p>
-            <a href={`tel:${brand.phone.replace(/[^+\d]/g, "")}`} className="h3 link-u" style={{ textTransform: "none" }}>
+            <span className="small muted" style={{ letterSpacing: "0.18em", display: "block", marginBottom: "0.5rem" }}>
+              DIRECT PRIVATE INQUIRY
+            </span>
+            <a href={`tel:${brand.phone.replace(/[^+\d]/g, "")}`} className="h3 link-u" style={{ textTransform: "none", fontSize: "clamp(1.35rem, 1.9vw, 2.1rem)", display: "block" }}>
               {brand.phone}
             </a>
+            <span className="small muted" style={{ display: "block", marginTop: "0.35rem", fontSize: "0.85rem" }}>
+              concierge@atelierprive.luxury
+            </span>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.4rem", alignItems: "flex-start" }}>
-            <button
-              className="small link-u"
-              onClick={() => {
-                onClose();
-                setTimeout(onModel, 900);
-              }}
-            >
-              Open the 3D model
-            </button>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem", alignItems: "flex-start" }}>
             <button
               className="btn-outline small"
               onClick={() => {
                 onClose();
-                setTimeout(onDossier, 900);
+                setTimeout(onModel, 700);
               }}
             >
-              <span>Request the dossier</span>
+              <span>Explore 3D Model</span>
             </button>
+            <button
+              className="small link-u muted"
+              onClick={() => {
+                onClose();
+                setTimeout(onDossier, 700);
+              }}
+            >
+              Request Confidential Dossier →
+            </button>
+          </div>
+          <div className="menu__locations">
+            <span className="small muted" style={{ letterSpacing: "0.16em", fontSize: "0.7rem" }}>
+              DUBAI &nbsp;·&nbsp; LONDON &nbsp;·&nbsp; ZÜRICH &nbsp;·&nbsp; LOS ANGELES
+            </span>
           </div>
         </aside>
       </div>
