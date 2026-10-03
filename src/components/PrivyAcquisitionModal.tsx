@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { X, CheckCircle, ShieldCheck, Phone } from "lucide-react";
-import { ProjectItem } from "@/data/privy-data";
+import { ProjectItem } from "@/data/atelier";
 
 interface PrivyAcquisitionModalProps {
   isOpen: boolean;
